@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+const form = document.createElement('form');
+form.id = 'myForm';
+
+const label = document.createElement('label');
+label.innerText = 'Name: ';
+form.appendChild(label);
+
+const input = document.createElement('input');
+input.type = 'text';
+input.id = 'name';
+input.name = 'name';
+input.required = true;
+form.appendChild(input);
+
+const submitButton = document.createElement('button');
+submitButton.type = 'submit';
+submitButton.innerText = 'Submit';
+form.appendChild(submitButton);
+
+const message = document.createElement('p');
+message.id = 'message';
+document.body.appendChild(form);
+document.body.appendChild(message);
+
+// Add event listener for form submit
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    const name = input.value;
+    message.innerText = `Hello, ${name}! Thank you for submitting the form.`;
+});
+
+    </script>
+</body>
+</html>
